@@ -1,0 +1,40 @@
+*tataku-collector-lorem_ipsum.txt*  The dummy collector module for tataku.vim
+=============================================================================
+tataku-collector-lorem_ipsum ~
+                                               *tataku-collector-lorem_ipsum*
+
+The dummy collector module for tataku.vim.
+
+Contents ~
+                                                *ddu-source-anyjump-contents*
+
+- |tataku-collector-lorem_ipsum-dependencies|
+- |tataku-collector-lorem_ipsum-options|
+- |tataku-collector-lorem_ipsum-samples|
+
+Dependencies ~
+                                  *tataku-collector-lorem_ipsum-dependencies*
+
+This plugin needs:
+
+- denops.vim |https://github.com/vim-denops/denops.vim|
+- tataku.vim |https://github.com/Omochice/tataku.vim|
+
+Options ~
+                                       *tataku-collector-lorem_ipsum-options*
+
+This module does not have any options.
+
+Samples ~
+                                       *tataku-collector-lorem_ipsum-samples*
+
+>
+	let g:tataku_recipes = #{
+	  \   sample: #{
+	  \     collector: #{ name: 'lorem_ipsum', options: {} }
+	  \   }
+	  \ }
+<
+
+
+vim:tw=78:ts=8:noet:ft=help:norl:
