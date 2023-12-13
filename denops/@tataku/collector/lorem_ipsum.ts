@@ -1,4 +1,4 @@
-import { Denops } from "https://deno.land/x/denops_std@v5.1.0/mod.ts";
+import { Denops } from "https://deno.land/x/denops_std@v5.2.0/mod.ts";
 
 const loremIpsum = [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
