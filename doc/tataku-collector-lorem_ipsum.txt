@@ -6,7 +6,7 @@ tataku-collector-lorem_ipsum ~
 The dummy collector module for tataku.vim.
 
 Contents ~
-                                                *ddu-source-anyjump-contents*
+                                      *tataku-collector-lorem_ipsum-contents*
 
 - |tataku-collector-lorem_ipsum-dependencies|
 - |tataku-collector-lorem_ipsum-options|
