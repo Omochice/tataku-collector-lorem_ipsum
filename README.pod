@@ -9,7 +9,7 @@ description: The dummy collector module for tataku.vim
 
 The dummy collector module for tataku.vim.
 
-=head2 Contents X<ddu-source-anyjump-contents>
+=head2 Contents X<tataku-collector-lorem_ipsum-contents>
 
 =over 0
 
