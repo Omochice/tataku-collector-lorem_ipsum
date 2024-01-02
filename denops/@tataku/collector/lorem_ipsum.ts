@@ -1,4 +1,25 @@
 import { Denops } from "https://deno.land/x/denops_std@v5.2.0/mod.ts";
+import {
+  assert,
+  is,
+  type PredicateType,
+} from "https://deno.land/x/unknownutil@v3.11.0/mod.ts";
+
+const isOption = is.ObjectOf({
+  once: is.OptionalOf(is.Boolean),
+  ms: is.OptionalOf(is.Number),
+});
+
+type Option = PredicateType<typeof isOption>;
+
+const defaults: Required<Option> = {
+  once: true,
+  ms: 250,
+};
+
+function wait(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(() => resolve(undefined), ms));
+}
 
 const loremIpsum = [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n",
@@ -7,10 +28,19 @@ const loremIpsum = [
   "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n",
 ];
 
-const collector = (_denops: Denops, _option: unknown) => {
+const collector = (_denops: Denops, option: unknown) => {
+  assert(option, isOption);
+  const opt = { ...defaults, ...option };
   return new ReadableStream<string[]>({
-    start: (controller: ReadableStreamDefaultController<string[]>) => {
-      controller.enqueue(loremIpsum);
+    start: async (controller: ReadableStreamDefaultController<string[]>) => {
+      if (opt.once) {
+        controller.enqueue(loremIpsum);
+        return;
+      }
+      for (const line of loremIpsum) {
+        await wait(opt.ms);
+        controller.enqueue([line]);
+      }
     },
   });
 };
