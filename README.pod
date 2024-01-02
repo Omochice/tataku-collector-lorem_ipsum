@@ -35,7 +35,23 @@ This plugin needs:
 
 =head2 Options X<tataku-collector-lorem_ipsum-options>
 
-This module does not have any options.
+This module havs some options.
+
+=over 0
+
+=item * C<once> X<tataku-collector-lorem_ipsum-options-once>
+
+  Send sentence at once.
+  Set C<false> is useful to emurate stream response.
+  Default: C<true>
+
+=item * C<ms> X<tataku-collector-lorem_ipsum-options-ms>
+
+  Gap milliseconds to send response.
+  This only use C<once> is C<false>.
+  Default: C<250>
+
+=back
 
 =head2 Samples X<tataku-collector-lorem_ipsum-samples>
 
@@ -43,7 +59,7 @@ This module does not have any options.
 
 let g:tataku_recipes = #{
   \   sample: #{
-  \     collector: #{ name: 'lorem_ipsum', options: {} }
+  \     collector: #{ name: 'lorem_ipsum', options: #{ once: v:true, ms: 250 } }
   \   }
   \ }
 
