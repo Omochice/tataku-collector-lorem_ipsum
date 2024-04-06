@@ -3,7 +3,7 @@ import {
   assert,
   is,
   type PredicateType,
-} from "https://deno.land/x/unknownutil@v3.17.0/mod.ts";
+} from "https://deno.land/x/unknownutil@v3.17.2/mod.ts";
 
 const isOption = is.ObjectOf({
   once: is.OptionalOf(is.Boolean),
