@@ -1,9 +1,14 @@
 import { Denops } from "jsr:@denops/std@7.0.3";
-import { assert, is, type PredicateType } from "jsr:@core/unknownutil@4.0.3";
+import {
+  as,
+  assert,
+  is,
+  type PredicateType,
+} from "jsr:@core/unknownutil@4.0.3";
 
 const isOption = is.ObjectOf({
-  once: is.OptionalOf(is.Boolean),
-  ms: is.OptionalOf(is.Number),
+  once: as.Optional(is.Boolean),
+  ms: as.Optional(is.Number),
 });
 
 type Option = PredicateType<typeof isOption>;
