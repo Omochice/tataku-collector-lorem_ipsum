@@ -1,5 +1,5 @@
 import { Denops } from "jsr:@denops/std@7.0.3";
-import { assert, is, type PredicateType } from "jsr:@core/unknownutil@3.18.1";
+import { assert, is, type PredicateType } from "jsr:@core/unknownutil@4.0.3";
 
 const isOption = is.ObjectOf({
   once: is.OptionalOf(is.Boolean),
