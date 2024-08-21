@@ -4,7 +4,7 @@ import {
   assert,
   is,
   type PredicateType,
-} from "jsr:@core/unknownutil@4.2.0";
+} from "jsr:@core/unknownutil@4.2.2";
 
 const isOption = is.ObjectOf({
   once: as.Optional(is.Boolean),
