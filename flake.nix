@@ -27,7 +27,7 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [ nur.overlays ];
+          overlays = [ nur.overlays.default ];
         };
         treefmt = treefmt-nix.lib.evalModule pkgs (
           { ... }:
@@ -80,7 +80,6 @@
         checks = {
           formatting = treefmt.config.build.check self;
         };
-        packages.default = pkgs.callPackage ./default.nix { };
         apps = {
           check-action =
             ''
@@ -97,12 +96,16 @@
               pkgs.zizmor
             ];
         };
-        devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            treefmt-nix.packages.${system}.treefmt
-            deno
-
-          ];
+        devShells = {
+          default = pkgs.mkShell {
+            packages = [
+              treefmt.config.build.wrapper
+              pkgs.deno
+              pkgs.actionlint
+              pkgs.ghalint
+              pkgs.zizmor
+            ];
+          };
         };
       }
     );
